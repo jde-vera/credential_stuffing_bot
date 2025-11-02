@@ -1,4 +1,4 @@
-from pynput.mouse import Controller
+from pynput.mouse import Controller, Button
 from pynput import mouse 
 import time
 def on_move(x,y):
@@ -16,11 +16,34 @@ def on_click(x,y,button,pressed):
 # confirm_password = (x=231,y=172)
 # login = (x=35,y=209)
 
-mouse = Controller()
-mouse.position = (231,100)
-time.sleep(5)
-mouse.move(0,35)
-time.sleep(5)
-mouse.move(0,37)
-time.sleep(5)
-mouse.move(-196,37)
+def run_mouse_controller():
+    mouse = Controller()
+    mouse.position = (231,100) # this is the co-ords of the username
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+
+    time.sleep(5)
+
+    mouse.move(249,26) # this is to close the saved info 
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+    
+    time.sleep(5)
+
+    mouse.move(-249,9)
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+
+    time.sleep(5)
+
+    mouse.move(0,37)
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+
+    time.sleep(5)
+
+    mouse.move(-196,37)
+    mouse.press(Button.left)
+    mouse.release(Button.left)
+
+run_mouse_controller()
