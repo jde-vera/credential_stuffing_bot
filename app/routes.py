@@ -18,6 +18,8 @@ def login():
             return redirect(url_for('main.dashboard'))
         else:
             form.username.data = ''
+    else:
+        form.username.data = ''
 
     return render_template('login.html',form=form)
 
