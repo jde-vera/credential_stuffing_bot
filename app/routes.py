@@ -16,6 +16,9 @@ def login():
 
         if user and user.check_password(password):
             return redirect(url_for('main.dashboard'))
+        else:
+            form.username.data = ''
+
     return render_template('login.html',form=form)
 
 @main.route('/dashboard', methods=['GET','POST'])
