@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+    {{form.hidden_tag()}}
+    <h2> welcome </h2>
+    <p>{{form.exit()}}</p>
+</form>
+{% endblock %}

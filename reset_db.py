@@ -1,5 +1,12 @@
-from app import db, login_manager, create_app
+import os
+from app import create_app, db
 from app.models import User
+
+db_path = 'instance/users.db'
+
+if os.path.exists(db_path):
+    os.remove(db_path)
+    print("existing database deleted...")
 
 app = create_app()
 
@@ -18,11 +25,4 @@ with app.app_context():
 
         db.session.add_all([user1,user2,user3])
         db.session.commit()
-
-@login_manager.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
+        print("seeded default users: user1, user2, user3")
